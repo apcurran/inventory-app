@@ -1,0 +1,26 @@
+<h2 class="title">New CPU</h2>
+<form action="/cpus/new" class="form" method="POST">
+    <div class="form__group">
+        <label for="name" class="form__group__label">CPU Model</label>
+        <input type="text" class="form__group__input" name="name" required="true">
+    </div>
+    <div class="form__group">
+        <label for="supplier" class="form__group__label">Supplier (Brand)</label>
+        <input type="text" class="form__group__input" name="supplier" required="true">
+    </div>
+    <div class="form__group">
+        <label for="cores" class="form__group__label">Number of Cores</label>
+        <input type="text" class="form__group__input" name="cores" required="true">
+    </div>
+    <div class="form__group">
+        <label for="threads" class="form__group__label">Number of Threads</label>
+        <input type="text" class="form__group__input" name="threads" required="true">
+    </div>
+    <div class="form__group">
+        <label for="clockspeed" class="form__group__label">Clockspeed</label>
+        <input type="text" class="form__group__input" name="clockspeed" required="true">
+    </div>
+
+    <a href="/cpus" class="form__cancel">Cancel</a>
+    <input class="form__submit" type="submit" value="Create">
+</form>

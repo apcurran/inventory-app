@@ -5,10 +5,43 @@
 }
 
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
-a {
-  color: #00B7FF;
+.header {
+  padding: 2rem 2.5rem;
+  background-color: #3C366B;
+  box-shadow:
+    0 2px 4px rgba(0, 0, 0, .35),
+    0 5px 7px rgba(0, 0, 0, .15);
+  color: #fff;
+}
+
+.header a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav__logo-link {
+  font-size: 2rem;
+
+}
+
+.nav__list {
+  list-style: none;
+}
+
+.main {
+  margin: 3rem auto;
+  width: 50rem;
+  max-width: 92.5%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1.5rem;
 }

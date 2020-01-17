@@ -15,7 +15,9 @@ db.on("error", console.error.bind(console, "mongo connection error"));
 // Require env
 require("dotenv").config();
 
+// Routers
 var indexRouter = require('./routes/index');
+const cpuRouter = require("./routes/cpus");
 
 var app = express();
 
@@ -28,8 +30,12 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.json());
+app.use(express.urlencoded());
 
+// Routes
 app.use('/', indexRouter);
+app.use("/cpus", cpuRouter);
 
 
 
