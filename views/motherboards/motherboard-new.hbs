@@ -1,0 +1,14 @@
+<h2 class="title">New Motherboard</h2>
+<form action="/motherboards/new" class="form" method="POST">
+    <div class="form__group">
+        <label for="name" class="form__group__label">Motherboard Model</label>
+        <input type="text" class="form__group__input" name="name" required="true">
+    </div>
+    <div class="form__group">
+        <label for="supplier" class="form__group__label">Supplier (Brand)</label>
+        <input type="text" class="form__group__input" name="supplier" required="true">
+    </div>
+
+    <a href="/motherboards" class="form__cancel">Cancel</a>
+    <input class="form__submit" type="submit" value="Create">
+</form>

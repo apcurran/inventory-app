@@ -1,0 +1,22 @@
+<h2 class="title">New GPU</h2>
+<form action="/gpus/new" class="form" method="POST">
+    <div class="form__group">
+        <label for="name" class="form__group__label">GPU Model</label>
+        <input type="text" class="form__group__input" name="name" required="true">
+    </div>
+    <div class="form__group">
+        <label for="supplier" class="form__group__label">Supplier (Brand)</label>
+        <input type="text" class="form__group__input" name="supplier" required="true">
+    </div>
+    <div class="form__group">
+        <label for="clockspeed" class="form__group__label">Clockspeed (MHz)</label>
+        <input type="number" class="form__group__input" name="clockspeed" required="true">
+    </div>
+    <div class="form__group">
+        <label for="clockspeed" class="form__group__label">Video Memory (GB)</label>
+        <input type="number" class="form__group__input" name="vram" required="true">
+    </div>
+
+    <a href="/gpus" class="form__cancel">Cancel</a>
+    <input class="form__submit" type="submit" value="Create">
+</form>

@@ -5,7 +5,7 @@ const CpuSchema = new mongoose.Schema({
     supplier: { type: String, required: true, max: 100 },
     cores: { type: Number, required: true, max: 64 },
     threads: { type: Number, required: true, max: 128 },
-    clockspeed: { type: String, required: true, max: 100 }
+    clockspeed: { type: Number, required: true, max: 100 }
 });
 
 module.exports = mongoose.model("Cpu", CpuSchema);

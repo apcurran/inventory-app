@@ -6,18 +6,19 @@ const Cpu = require("../models/cpu");
 router.get("/", async (req, res, next) => {
     try {
         const data = await Cpu.find({});
-        res.render("cpus/list", { cpus: data });
+        res.render("cpus/cpu-list", { title: "CPU List", cpus: data });
     } catch (err) {
         next(err);
         res.redirect("/"); // Back to home page
     }
 });
 
-// New CPU Route
+// GET New CPU Page
 router.get("/new", (req, res) => {
-    res.render("cpus/new", { cpu: new Cpu() });
+    res.render("cpus/cpu-new", { title: "Add a CPU", cpu: new Cpu() });
 });
 
+// POST New Cpu Item
 router.post("/new", async (req, res, next) => {
     const cpu = new Cpu({
         name: req.body.name,
@@ -30,9 +31,10 @@ router.post("/new", async (req, res, next) => {
     try {
         const newCpu = await cpu.save();
         // res.redirect(`cpus/${newCpu.id}`);
-        res.redirect("/cpus"); // starting from home page / cpus
+        res.redirect("/cpus"); // starting from home page, then cpus
     } catch {
-        res.render("cpus/new", {
+        res.render("cpus/cpu-new", {
+            title: "Add a CPU",
             name,
             supplier,
             cores,

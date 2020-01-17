@@ -18,6 +18,7 @@ require("dotenv").config();
 // Routers
 var indexRouter = require('./routes/index');
 const cpuRouter = require("./routes/cpus");
+const gpuRouter = require("./routes/gpus");
 
 var app = express();
 
@@ -36,6 +37,7 @@ app.use(express.urlencoded());
 // Routes
 app.use('/', indexRouter);
 app.use("/cpus", cpuRouter);
+app.use("/gpus", gpuRouter);
 
 
 

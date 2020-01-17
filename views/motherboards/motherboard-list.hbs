@@ -1,0 +1,13 @@
+<h2>Here is the Mobo section</h2>
+<a href="/gpus/new">Add a New Motherboard</a>
+
+<main class="main">
+{{#each motherboards}}
+    <article class="article">
+        <h3 class="article__title">{{ this.supplier }} {{ this.name }}</h3>
+        <section class="article__description">
+            
+        </section>
+    </article>
+{{/each}}
+</main>
