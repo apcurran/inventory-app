@@ -40,7 +40,7 @@ router.post("/new", async (req, res, next) => {
             clockspeed,
             vram,
             errorMessage: "Error creating gpu"
-        })
+        });
     }
 });
 
