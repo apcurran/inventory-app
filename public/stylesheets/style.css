@@ -10,7 +10,7 @@ body {
 
 .header {
   padding: 2rem 2.5rem;
-  background-color: #3C366B;
+  background-color: #2C5282;
   box-shadow:
     0 2px 4px rgba(0, 0, 0, .35),
     0 5px 7px rgba(0, 0, 0, .15);
@@ -37,6 +37,21 @@ body {
   list-style: none;
 }
 
+.wrapper {
+  width: 70rem;
+  max-width: 92.5%;
+  margin: 3rem auto;
+}
+
+.list-title {
+  text-align: center;
+}
+
+.list-link {
+  display: block;
+  text-align: center;
+}
+
 .main {
   margin: 3rem auto;
   width: 50rem;
@@ -44,4 +59,61 @@ body {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 1.5rem;
+}
+
+.article {
+  padding: 2rem;
+  background-color: hsl(214, 32%, 92%);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, .175);
+  border-radius: 10px;
+}
+
+.form {
+  width: 40rem;
+  max-width: 92.5%;
+  margin: 3rem auto;
+}
+
+.form__group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form__group {
+  margin-top: 1.5rem;
+}
+
+.form__group__label {
+  margin-bottom: .25rem;
+}
+
+.form__group__input {
+  padding: .35rem .5rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 4px;
+  background-color: #E2E8F0;
+}
+
+.form__nav {
+  margin-top: 2rem;
+}
+
+.form__nav__cancel {
+  color: #444;
+  margin-right: 1rem;
+}
+
+.form__nav__submit {
+  padding: .6rem 1.75rem;
+  border: none;
+  border-radius: 4px;
+  background: linear-gradient(to right, #4776e6, #8e54e9);
+  box-shadow: 0 4px 8px rgba(71, 118, 230, .35);
+  color: #fff;
+  font-size: .95rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  cursor: pointer;
 }

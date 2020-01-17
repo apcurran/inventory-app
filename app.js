@@ -20,6 +20,7 @@ var indexRouter = require('./routes/index');
 const cpuRouter = require("./routes/cpus");
 const gpuRouter = require("./routes/gpus");
 const motherboardRouter = require("./routes/motherboards");
+const ramRouter = require("./routes/ram");
 
 var app = express();
 
@@ -40,7 +41,7 @@ app.use('/', indexRouter);
 app.use("/cpus", cpuRouter);
 app.use("/gpus", gpuRouter);
 app.use("/motherboards", motherboardRouter);
-
+app.use("/ram", ramRouter);
 
 
 

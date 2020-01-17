@@ -1,7 +1,7 @@
-<h2 class="title">New Motherboard</h2>
-<form action="/motherboards/new" class="form" method="POST">
+<h2 class="title">New Ram Product</h2>
+<form action="/ram/new" class="form" method="POST">
     <div class="form__group">
-        <label for="name" class="form__group__label">Motherboard Model</label>
+        <label for="name" class="form__group__label">Ram Model</label>
         <input type="text" class="form__group__input" name="name" required="true">
     </div>
     <div class="form__group">
@@ -9,12 +9,12 @@
         <input type="text" class="form__group__input" name="supplier" required="true">
     </div>
     <div class="form__group">
-        <label for="platform" class="form__group__label">Platform (AMD/Intel)</label>
-        <input type="text" class="form__group__input" name="platform" required="true">
+        <label for="speed" class="form__group__label">Frequency</label>
+        <input type="number" class="form__group__input" name="speed" required="true">
     </div>
     <div class="form__group">
-        <label for="chipset" class="form__group__label">Chipset</label>
-        <input type="text" class="form__group__input" name="chipset" required="true">
+        <label for="amount" class="form__group__label">Amount</label>
+        <input type="number" class="form__group__input" name="amount" required="true">
     </div>
     <div class="form__nav">
         <a href="/motherboards" class="form__nav__cancel">Cancel</a>

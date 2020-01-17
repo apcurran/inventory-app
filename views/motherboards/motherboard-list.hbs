@@ -1,13 +1,16 @@
-<h2>Here is the Mobo section</h2>
-<a href="/motherboards/new">Add a New Motherboard</a>
+<div class="wrapper">
+    <h2 class="list-title">Here is the Mobo section</h2>
+    <a class="list-link" href="/motherboards/new">Add a New Motherboard</a>
 
-<main class="main">
-{{#each motherboards}}
-    <article class="article">
-        <h3 class="article__title">{{ this.supplier }} {{ this.name }}</h3>
-        <section class="article__description">
-            <p>{{ this.platform }} {{ this.chipset }}</p>
-        </section>
-    </article>
-{{/each}}
-</main>
+    <main class="main">
+    {{#each motherboards}}
+        <article class="article">
+            <h3 class="article__title">{{ this.supplier }} {{ this.name }}</h3>
+            <section class="article__description">
+                <p>{{ this.platform }} {{ this.chipset }}</p>
+            </section>
+        </article>
+    {{/each}}
+    </main>
+    
+</div>

@@ -29,6 +29,7 @@ router.post("/new", async (req, res, next) => {
 
     try {
         const newMotherboard = await motherboard.save();
+        // res.redirect(`motherboards/${newMotherboard.id}`);
         res.redirect("/motherboards"); // Starting from the home page, then motherboards
     } catch (err) {
         next(err);

@@ -1,5 +1,5 @@
-<h2 class="title">New CPU</h2>
 <form action="/cpus/new" class="form" method="POST">
+    <h2 class="form__title">New CPU</h2>
     <div class="form__group">
         <label for="name" class="form__group__label">CPU Model</label>
         <input type="text" class="form__group__input" name="name" required="true">
@@ -21,6 +21,8 @@
         <input type="number" class="form__group__input" name="clockspeed" required="true">
     </div>
 
-    <a href="/cpus" class="form__cancel">Cancel</a>
-    <input class="form__submit" type="submit" value="Create">
+    <div class="form__nav">
+        <a href="/cpus" class="form__nav__cancel">Cancel</a>
+        <input class="form__nav__submit" type="submit" value="Create">
+    </div>
 </form>

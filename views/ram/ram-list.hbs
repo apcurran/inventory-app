@@ -1,17 +1,16 @@
 <div class="wrapper">
-    <h2 class="list-title">Here is the GPU section</h2>
-    <a class="list-link" href="/gpus/new">Add a new GPU</a>
+    <h2 class="list-title">Here is the Ram section</h2>
+    <a class="list-link" href="/ram/new">Add a new Ram Product</a>
 
     <main class="main">
-    {{#each gpus}}
+    {{#each ram}}
         <article class="article">
             <h3 class="article__title">{{ this.supplier }} {{ this.name }}</h3>
             <section class="article__description">
-                <p>Max Boost: {{ this.clockspeed }} MHz</p>
-                <p>Total Video Memory: {{ this.vram }} GB</p>
+                <p>Frequency: {{ this.speed }} MHz</p>
+                <p>Total Memory: {{ this.amount }} GB</p>
             </section>
         </article>
     {{/each}}
     </main>
 </div>
-
