@@ -8,10 +8,15 @@
         <article class="article">
             <h3 class="article__title">{{ this.supplier }} {{ this.name }}</h3>
             <section class="article__description">
+                <p>ID: {{ this._id }}</p>
                 <span>{{ this.cores }} cores</span>
                 <span>{{ this.threads }} threads</span>
                 <p>Max Boost {{ this.clockspeed }} Ghz</p>
             </section>
+            <form class="form-delete" method="POST">
+                <input type="hidden" name="cpuId" required="true" class="form-delete__input" value="{{ this._id }}">
+                <input class="form-delete__submit" type="submit" value="Delete">
+            </form>
         </article>
     {{/each}}
     </main>

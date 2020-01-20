@@ -117,3 +117,18 @@ body {
   letter-spacing: .06em;
   cursor: pointer;
 }
+
+/* Delete Item */
+.form-delete {
+  margin-top: 1rem;
+}
+
+.form-delete__submit {
+  padding: .5rem 1.5rem;
+  background-color: hsl(214, 20%, 71%);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+}

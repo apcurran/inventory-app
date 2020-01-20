@@ -18,7 +18,7 @@ router.get("/new", (req, res) => {
     res.render("cpus/cpu-new", { title: "Add a CPU", cpu: new Cpu() });
 });
 
-// POST New Cpu Item
+// POST New CPU Item
 router.post("/new", async (req, res, next) => {
     const cpu = new Cpu({
         name: req.body.name,
@@ -42,6 +42,19 @@ router.post("/new", async (req, res, next) => {
             clockspeed,
             errorMessage: "Error creating cpu" 
         });
+    }
+});
+
+// POST Delete CPU Item
+router.post("/", async (req, res, next) => {
+    try {
+        await Cpu.findByIdAndRemove(req.body.cpuId);
+        
+        const data = await Cpu.find({});
+        res.render("cpus/cpu-list", { title: "CPU List", cpus: data });
+    } catch (err) {
+        next(err);
+        res.redirect("/");
     }
 });
 
