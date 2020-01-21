@@ -2,27 +2,27 @@
     <h2 class="form__title">Update CPU Item</h2>
     <div class="form__group">
         <label for="name" class="form__group__label">CPU Model</label>
-        <input type="text" class="form__group__input" name="name" required="true">
+        <input type="text" class="form__group__input" name="name" required="true" value="{{ cpu.name }}">
     </div>
     <div class="form__group">
         <label for="supplier" class="form__group__label">Supplier (Brand)</label>
-        <input type="text" class="form__group__input" name="supplier" required="true">
+        <input type="text" class="form__group__input" name="supplier" required="true" value="{{ cpu.supplier }}">
     </div>
     <div class="form__group">
         <label for="cores" class="form__group__label">Number of Cores</label>
-        <input type="number" class="form__group__input" name="cores" required="true">
+        <input type="number" class="form__group__input" name="cores" required="true" value="{{ cpu.cores }}">
     </div>
     <div class="form__group">
         <label for="threads" class="form__group__label">Number of Threads</label>
-        <input type="number" class="form__group__input" name="threads" required="true">
+        <input type="number" class="form__group__input" name="threads" required="true" value="{{ cpu.threads }}">
     </div>
     <div class="form__group">
         <label for="clockspeed" class="form__group__label">Clockspeed (Ghz)</label>
-        <input type="number" class="form__group__input" name="clockspeed" required="true">
+        <input type="number" class="form__group__input" name="clockspeed" required="true" value="{{ cpu.clockspeed }}">
     </div>
 
     <div class="form__nav">
         <a href="/cpus" class="form__nav__cancel">Cancel</a>
-        <input class="form__nav__submit" type="submit" value="Create">
+        <input class="form__nav__submit" type="submit" value="Update">
     </div>
 </form>

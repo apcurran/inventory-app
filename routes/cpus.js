@@ -70,4 +70,7 @@ router.get("/:id/update", async (req, res, next) => {
     }
 });
 
+// POST Update CPU Item
+
+
 module.exports = router;
