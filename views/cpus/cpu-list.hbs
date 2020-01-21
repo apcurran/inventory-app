@@ -1,14 +1,13 @@
 
 <div class="wrapper">
-    <h2 class="list-title">Here is the CPU section</h2>
-    <a class="list-link" href="/cpus/new">Add a new CPU</a>
+    <h2 class="list-title">CPUs</h2>
+    <a class="list-link" href="/cpus/new">Add a New CPU</a>
 
     <main class="main">
     {{#each cpus}}
         <article class="article">
             <h3 class="article__title">{{ this.supplier }} {{ this.name }}</h3>
             <section class="article__description">
-                <p>ID: {{ this._id }}</p>
                 <span>{{ this.cores }} cores</span>
                 <span>{{ this.threads }} threads</span>
                 <p>Max Boost {{ this.clockspeed }} Ghz</p>

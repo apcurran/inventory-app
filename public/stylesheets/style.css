@@ -62,6 +62,11 @@ body {
   text-align: center;
 }
 
+.main-index__title {
+  margin: 3rem 0;
+  text-align: center;
+}
+
 .main {
   margin: 3rem auto;
   width: 50rem;
@@ -76,6 +81,10 @@ body {
   background-color: hsl(214, 32%, 92%);
   box-shadow: 0 6px 10px rgba(0, 0, 0, .175);
   border-radius: 10px;
+}
+
+.article__title {
+  margin-bottom: .5rem;
 }
 
 .form {
