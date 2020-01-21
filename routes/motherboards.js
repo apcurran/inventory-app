@@ -36,4 +36,16 @@ router.post("/new", async (req, res, next) => {
     }
 });
 
+router.post("/", async (req, res, next) => {
+    try {
+        await Motherboard.findByIdAndRemove(req.body.motherboardId);
+        
+        const data = await Motherboard.find({});
+        res.render("motherboards/motherboard-list", { title: "Motherboard List", motherboards: data });
+    } catch (err) {
+        next(err);
+        res.redirect("/");
+    }
+});
+
 module.exports = router;

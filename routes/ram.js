@@ -36,4 +36,16 @@ router.post("/new", async (req, res, next) => {
     }
 });
 
+router.post("/", async (req, res, next) => {
+    try {
+        await Ram.findByIdAndRemove(req.body.ramId);
+        
+        const data = await Ram.find({});
+        res.render("ram/ram-list", { title: "Ram List", ram: data });
+    } catch (err) {
+        next(err);
+        res.redirect("/");
+    }
+});
+
 module.exports = router;

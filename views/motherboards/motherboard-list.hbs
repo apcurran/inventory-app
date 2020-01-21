@@ -9,6 +9,10 @@
             <section class="article__description">
                 <p>{{ this.platform }} {{ this.chipset }}</p>
             </section>
+            <form class="form-delete" method="POST">
+                <input type="hidden" name="motherboardId" required="true" class="form-delete__input" value="{{ this._id }}">
+                <input class="form-delete__submit" type="submit" value="Delete">
+            </form>
         </article>
     {{/each}}
     </main>

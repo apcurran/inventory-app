@@ -44,4 +44,16 @@ router.post("/new", async (req, res, next) => {
     }
 });
 
+router.post("/", async (req, res, next) => {
+    try {
+        await Gpu.findByIdAndRemove(req.body.gpuId);
+        
+        const data = await Gpu.find({});
+        res.render("gpus/gpu-list", { title: "GPU List", gpus: data });
+    } catch (err) {
+        next(err);
+        res.redirect("/");
+    }
+});
+
 module.exports = router;
