@@ -58,4 +58,16 @@ router.post("/", async (req, res, next) => {
     }
 });
 
+// GET Update CPU Item Page
+router.get("/:id/update", async (req, res, next) => {
+    try {
+        const itemId = req.params.id;
+        const itemData = await Cpu.findById(itemId);
+        res.render("cpus/cpu-update", { title: "CPU Update", cpu: itemData });
+    } catch (err) {
+        next(err);
+        res.redirect("/");
+    }
+});
+
 module.exports = router;

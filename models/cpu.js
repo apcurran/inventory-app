@@ -8,4 +8,11 @@ const CpuSchema = new mongoose.Schema({
     clockspeed: { type: Number, required: true, max: 100 }
 });
 
+// Virtual for book's URL
+CpuSchema
+    .virtual('updateUrl')
+    .get(function () {
+        return '/cpus/' + this._id + "/update";
+    });
+
 module.exports = mongoose.model("Cpu", CpuSchema);

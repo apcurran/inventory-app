@@ -35,6 +35,16 @@ body {
 
 .nav__list {
   list-style: none;
+  display: flex;
+}
+
+.nav__item {
+  margin: 0 .25rem;
+}
+
+.nav__item__link {
+  display: inline block;
+  padding: .5rem;
 }
 
 .wrapper {
