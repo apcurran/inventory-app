@@ -1,0 +1,24 @@
+<form action="/ram/{{ ram._id }}/update" class="form" method="POST">
+    <h2 class="form__title">Update RAM Item</h2>
+    <div class="form__group">
+        <label for="name" class="form__group__label">Ram Model</label>
+        <input type="text" class="form__group__input" name="name" required="true" value="{{ ram.name }}">
+    </div>
+    <div class="form__group">
+        <label for="supplier" class="form__group__label">Supplier (Brand)</label>
+        <input type="text" class="form__group__input" name="supplier" required="true" value="{{ ram.supplier }}">
+    </div>
+    <div class="form__group">
+        <label for="speed" class="form__group__label">Frequency</label>
+        <input type="number" class="form__group__input" name="speed" required="true" value="{{ ram.speed }}">
+    </div>
+    <div class="form__group">
+        <label for="amount" class="form__group__label">Total</label>
+        <input type="number" class="form__group__input" name="amount" required="true" value="{{ ram.amount }}">
+    </div>
+
+    <div class="form__nav">
+        <a href="/ram" class="form__nav__cancel">Cancel</a>
+        <input class="form__nav__submit" type="submit" value="Update">
+    </div>
+</form>

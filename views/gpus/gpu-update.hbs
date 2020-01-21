@@ -1,0 +1,24 @@
+<form action="/gpus/{{ gpu._id }}/update" class="form" method="POST">
+    <h2 class="form__title">Update GPU Item</h2>
+    <div class="form__group">
+        <label for="name" class="form__group__label">GPU Model</label>
+        <input type="text" class="form__group__input" name="name" required="true" value="{{ gpu.name }}">
+    </div>
+    <div class="form__group">
+        <label for="supplier" class="form__group__label">Supplier (Brand)</label>
+        <input type="text" class="form__group__input" name="supplier" required="true" value="{{ gpu.supplier }}">
+    </div>
+    <div class="form__group">
+        <label for="clockspeed" class="form__group__label">Clockspeed (MHz)</label>
+        <input type="number" class="form__group__input" name="clockspeed" required="true" value="{{ gpu.clockspeed }}">
+    </div>
+    <div class="form__group">
+        <label for="vram" class="form__group__label">Video Memory (GB)</label>
+        <input type="number" class="form__group__input" name="vram" required="true" value="{{ gpu.vram }}">
+    </div>
+
+    <div class="form__nav">
+        <a href="/gpus" class="form__nav__cancel">Cancel</a>
+        <input class="form__nav__submit" type="submit" value="Update">
+    </div>
+</form>

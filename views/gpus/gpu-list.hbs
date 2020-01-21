@@ -13,6 +13,7 @@
             <form class="form-delete" method="POST">
                 <input type="hidden" name="gpuId" required="true" class="form-delete__input" value="{{ this._id }}">
                 <input class="form-delete__submit" type="submit" value="Delete">
+                <a class="form-delete__update-link" href="{{ this.updateUrl }}">Update</a>
             </form>
         </article>
     {{/each}}

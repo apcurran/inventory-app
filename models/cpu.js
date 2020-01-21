@@ -8,7 +8,7 @@ const CpuSchema = new mongoose.Schema({
     clockspeed: { type: Number, required: true, max: 100 }
 });
 
-// Virtual for book's URL
+// Virtual for CPU's URL
 CpuSchema
     .virtual('updateUrl')
     .get(function () {

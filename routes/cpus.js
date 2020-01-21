@@ -30,7 +30,7 @@ router.post("/new", async (req, res, next) => {
 
     try {
         const newCpu = await cpu.save();
-        // res.redirect(`cpus/${newCpu.id}`);
+
         res.redirect("/cpus"); // starting from home page, then cpus
     } catch {
         res.render("cpus/cpu-new", {
@@ -49,9 +49,8 @@ router.post("/new", async (req, res, next) => {
 router.post("/", async (req, res, next) => {
     try {
         await Cpu.findByIdAndRemove(req.body.cpuId);
-        
-        const data = await Cpu.find({});
-        res.render("cpus/cpu-list", { title: "CPU List", cpus: data });
+
+        res.redirect("/cpus")
     } catch (err) {
         next(err);
         res.redirect("/");
@@ -71,6 +70,25 @@ router.get("/:id/update", async (req, res, next) => {
 });
 
 // POST Update CPU Item
+router.post("/:id/update", async (req, res, next) => {
+    try {
+        const itemId = req.params.id;
+        const updatedItem = new Cpu({
+            _id: itemId,
+            name: req.body.name,
+            supplier: req.body.supplier,
+            cores: req.body.cores,
+            threads: req.body.threads,
+            clockspeed: req.body.clockspeed
+        });
 
+        await Cpu.findByIdAndUpdate(itemId, updatedItem); // Update Item
+
+        res.redirect("/cpus"); // Redirect to CPU List with updated data
+    } catch (err) {
+        next(err);
+        res.redirect("/");
+    }
+});
 
 module.exports = router;

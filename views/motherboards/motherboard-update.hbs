@@ -1,0 +1,24 @@
+<form action="/motherboard/{{ motherboard._id }}/update" class="form" method="POST">
+    <h2 class="form__title">Update Motherboard Item</h2>
+    <div class="form__group">
+        <label for="name" class="form__group__label">Motherboard Model</label>
+        <input type="text" class="form__group__input" name="name" required="true" value="{{ motherboard.name }}">
+    </div>
+    <div class="form__group">
+        <label for="supplier" class="form__group__label">Supplier (Brand)</label>
+        <input type="text" class="form__group__input" name="supplier" required="true" value="{{ motherboard.supplier }}">
+    </div>
+    <div class="form__group">
+        <label for="platform" class="form__group__label">Platform</label>
+        <input type="text" class="form__group__input" name="platform" required="true" value="{{ motherboard.platform }}">
+    </div>
+    <div class="form__group">
+        <label for="chipset" class="form__group__label">Chipset</label>
+        <input type="text" class="form__group__input" name="chipset" required="true" value="{{ motherboard.chipset }}">
+    </div>
+
+    <div class="form__nav">
+        <a href="/motherboard" class="form__nav__cancel">Cancel</a>
+        <input class="form__nav__submit" type="submit" value="Update">
+    </div>
+</form>
