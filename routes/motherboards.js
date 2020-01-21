@@ -40,8 +40,40 @@ router.post("/", async (req, res, next) => {
     try {
         await Motherboard.findByIdAndRemove(req.body.motherboardId);
         
-        const data = await Motherboard.find({});
-        res.render("motherboards/motherboard-list", { title: "Motherboard List", motherboards: data });
+        res.redirect("/motherboards");
+    } catch (err) {
+        next(err);
+        res.redirect("/");
+    }
+});
+
+// GET Update Motherboard Item Page
+router.get("/:id/update", async (req, res, next) => {
+    try {
+        const itemId = req.params.id;
+        const itemData = await Motherboard.findById(itemId);
+        res.render("motherboards/motherboard-update", { title: "Motherboard Update", motherboard: itemData });
+    } catch (err) {
+        next(err);
+        res.redirect("/");
+    }
+});
+
+// POST Update Motherboard Item
+router.post("/:id/update", async (req, res, next) => {
+    try {
+        const itemId = req.params.id;
+        const updatedItem = new Motherboard({
+            _id: itemId,
+            name: req.body.name,
+            supplier: req.body.supplier,
+            platform: req.body.platform,
+            chipset: req.body.chipset
+        });
+
+        await Motherboard.findByIdAndUpdate(itemId, updatedItem); // Update Item
+
+        res.redirect("/motherboards"); // Redirect to list with updated data
     } catch (err) {
         next(err);
         res.redirect("/");

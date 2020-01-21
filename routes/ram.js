@@ -48,4 +48,37 @@ router.post("/", async (req, res, next) => {
     }
 });
 
+// GET Update RAM Item Page
+router.get("/:id/update", async (req, res, next) => {
+    try {
+        const itemId = req.params.id;
+        const itemData = await Ram.findById(itemId);
+        res.render("ram/ram-update", { title: "RAM Update", ram: itemData });
+    } catch (err) {
+        next(err);
+        res.redirect("/");
+    }
+});
+
+// POST Update RAM Item
+router.post("/:id/update", async (req, res, next) => {
+    try {
+        const itemId = req.params.id;
+        const updatedItem = new Ram({
+            _id: itemId,
+            name: req.body.name,
+            supplier: req.body.supplier,
+            speed: req.body.speed,
+            amount: req.body.amount
+        });
+
+        await Ram.findByIdAndUpdate(itemId, updatedItem); // Update Item
+
+        res.redirect("/ram"); // Redirect to list with updated data
+    } catch (err) {
+        next(err);
+        res.redirect("/");
+    }
+});
+
 module.exports = router;

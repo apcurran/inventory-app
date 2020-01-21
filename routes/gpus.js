@@ -44,12 +44,33 @@ router.post("/new", async (req, res, next) => {
     }
 });
 
-router.post("/", async (req, res, next) => {
+// GET Update GPU Item Page
+router.get("/:id/update", async (req, res, next) => {
     try {
-        await Gpu.findByIdAndRemove(req.body.gpuId);
-        
-        const data = await Gpu.find({});
-        res.render("gpus/gpu-list", { title: "GPU List", gpus: data });
+        const itemId = req.params.id;
+        const itemData = await Gpu.findById(itemId);
+        res.render("gpus/gpu-update", { title: "GPU Update", gpu: itemData });
+    } catch (err) {
+        next(err);
+        res.redirect("/");
+    }
+});
+
+// POST Update GPU Item
+router.post("/:id/update", async (req, res, next) => {
+    try {
+        const itemId = req.params.id;
+        const updatedItem = new Gpu({
+            _id: itemId,
+            name: req.body.name,
+            supplier: req.body.supplier,
+            clockspeed: req.body.clockspeed,
+            vram: req.body.vram
+        });
+
+        await Gpu.findByIdAndUpdate(itemId, updatedItem); // Update Item
+
+        res.redirect("/gpus"); // Redirect to list with updated data
     } catch (err) {
         next(err);
         res.redirect("/");
