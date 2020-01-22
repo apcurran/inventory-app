@@ -4,6 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const mongoose = require("mongoose");
+const helmet = require("helmet");
 
 require("dotenv").config();
 
@@ -23,6 +24,9 @@ const motherboardRouter = require("./routes/motherboards");
 const ramRouter = require("./routes/ram");
 
 var app = express();
+
+// Enable Helmet for Security
+app.use(helmet());
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const Gpu = require("../models/gpu.js");
+const { sanitizeBody } = require("express-validator");
 
 // GET All Gpus
 router.get("/", async (req, res, next) => {
@@ -19,7 +20,14 @@ router.get("/new", (req, res, next) => {
 })
 
 // POST New Gpu Item
-router.post("/new", async (req, res, next) => {
+router.post("/new", [
+
+    sanitizeBody("name").escape(),
+    sanitizeBody("supplier").escape(),
+    sanitizeBody("clockspeed").escape(),
+    sanitizeBody("vram").escape()
+
+], async (req, res, next) => {
     const gpu = new Gpu({
         name: req.body.name,
         supplier: req.body.supplier,
@@ -57,7 +65,15 @@ router.get("/:id/update", async (req, res, next) => {
 });
 
 // POST Update GPU Item
-router.post("/:id/update", async (req, res, next) => {
+router.post("/:id/update", [
+
+    sanitizeBody("_id").escape(),
+    sanitizeBody("name").escape(),
+    sanitizeBody("supplier").escape(),
+    sanitizeBody("clockspeed").escape(),
+    sanitizeBody("vram").escape()
+
+], async (req, res, next) => {
     try {
         const itemId = req.params.id;
         const updatedItem = new Gpu({

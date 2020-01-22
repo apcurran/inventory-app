@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const Ram = require("../models/ram");
+const { sanitizeBody } = require("express-validator");
 
 // GET All Ram
 router.get("/", async (req, res, next) => {
@@ -19,7 +20,14 @@ router.get("/new", (req, res, next) => {
 });
 
 // POST New Ram Item
-router.post("/new", async (req, res, next) => {
+router.post("/new", [
+
+    sanitizeBody("name").escape(),
+    sanitizeBody("supplier").escape(),
+    sanitizeBody("speed").escape(),
+    sanitizeBody("amount").escape()
+
+], async (req, res, next) => {
     const ram = new Ram({
         name: req.body.name,
         supplier: req.body.supplier,
@@ -36,6 +44,7 @@ router.post("/new", async (req, res, next) => {
     }
 });
 
+// DELETE Ram Item
 router.post("/", async (req, res, next) => {
     try {
         await Ram.findByIdAndRemove(req.body.ramId);
@@ -61,7 +70,15 @@ router.get("/:id/update", async (req, res, next) => {
 });
 
 // POST Update RAM Item
-router.post("/:id/update", async (req, res, next) => {
+router.post("/:id/update", [
+
+    sanitizeBody("_id").escape(),
+    sanitizeBody("name").escape(),
+    sanitizeBody("supplier").escape(),
+    sanitizeBody("speed").escape(),
+    sanitizeBody("amount").escape()
+
+], async (req, res, next) => {
     try {
         const itemId = req.params.id;
         const updatedItem = new Ram({

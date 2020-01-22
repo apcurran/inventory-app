@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
-const Cpu = require("../models/cpu"); 
+const Cpu = require("../models/cpu");
+const { sanitizeBody } = require("express-validator");
 
 // GET All CPUs
 router.get("/", async (req, res, next) => {
@@ -19,7 +20,15 @@ router.get("/new", (req, res) => {
 });
 
 // POST New CPU Item
-router.post("/new", async (req, res, next) => {
+router.post("/new", [
+
+    sanitizeBody("name").escape(),
+    sanitizeBody("supplier").escape(),
+    sanitizeBody("cores").escape(),
+    sanitizeBody("threads").escape(),
+    sanitizeBody("clockspeed").escape()
+
+], async (req, res, next) => {
     const cpu = new Cpu({
         name: req.body.name,
         supplier: req.body.supplier,
@@ -70,7 +79,16 @@ router.get("/:id/update", async (req, res, next) => {
 });
 
 // POST Update CPU Item
-router.post("/:id/update", async (req, res, next) => {
+router.post("/:id/update", [
+
+    sanitizeBody("_id").escape(),
+    sanitizeBody("name").escape(),
+    sanitizeBody("supplier").escape(),
+    sanitizeBody("cores").escape(),
+    sanitizeBody("threads").escape(),
+    sanitizeBody("clockspeed").escape()
+
+], async (req, res, next) => {
     try {
         const itemId = req.params.id;
         const updatedItem = new Cpu({

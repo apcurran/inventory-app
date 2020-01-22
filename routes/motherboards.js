@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const Motherboard = require("../models/motherboard");
+const { sanitizeBody } = require("express-validator");
 
 // GET All Motherboards
 router.get("/", async (req, res, next) => {
@@ -19,7 +20,14 @@ router.get("/new", (req, res, next) => {
 });
 
 // POST New Motherboard Item
-router.post("/new", async (req, res, next) => {
+router.post("/new", [
+
+    sanitizeBody("name").escape(),
+    sanitizeBody("supplier").escape(),
+    sanitizeBody("platform").escape(),
+    sanitizeBody("chipset").escape()
+
+], async (req, res, next) => {
     const motherboard = new Motherboard({
         name: req.body.name,
         supplier: req.body.supplier,
@@ -36,6 +44,7 @@ router.post("/new", async (req, res, next) => {
     }
 });
 
+// DELETE Motherboard
 router.post("/", async (req, res, next) => {
     try {
         await Motherboard.findByIdAndRemove(req.body.motherboardId);
@@ -60,7 +69,15 @@ router.get("/:id/update", async (req, res, next) => {
 });
 
 // POST Update Motherboard Item
-router.post("/:id/update", async (req, res, next) => {
+router.post("/:id/update", [
+
+    sanitizeBody("_id").escape(),
+    sanitizeBody("name").escape(),
+    sanitizeBody("supplier").escape(),
+    sanitizeBody("platform").escape(),
+    sanitizeBody("chipset").escape()
+
+], async (req, res, next) => {
     try {
         const itemId = req.params.id;
         const updatedItem = new Motherboard({
