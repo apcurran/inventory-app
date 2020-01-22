@@ -16,4 +16,6 @@
 
 * Handlebars JS used as a templating engine for dynamic HTML output
 
+* Deployment to Heroku
+
 * Mobile friendly layout
