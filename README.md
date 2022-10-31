@@ -1,7 +1,5 @@
 # Inventory App
 
-[Link](https://apcurran-inventory-app.herokuapp.com/)
-
 ## Features:
 
 * Create actions
